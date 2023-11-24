@@ -1,0 +1,45 @@
+DROP TABLE IF EXISTS `BRAND`;
+CREATE TABLE `BRAND`
+(
+  brand_id VARCHAR(255) NOT NULL,
+  brand_name VARCHAR(255) NOT NULL,
+  PRIMARY KEY (brand_id)
+);
+
+DROP TABLE IF EXISTS `CATEGORY`;
+CREATE TABLE `CATEGORY`
+(
+  category_id  VARCHAR(255) NOT NULL,
+  category_name VARCHAR(255) NOT NULL,
+  PRIMARY KEY (category_id)
+);
+
+DROP TABLE IF EXISTS `PRODUCT`;
+CREATE TABLE `PRODUCT`
+(
+  product_id  VARCHAR(255) NOT NULL,
+  category_id VARCHAR(255) NOT NULL,
+  brand_id    VARCHAR(255) NOT NULL,
+  price       INTEGER,
+  PRIMARY KEY (product_id)
+);
+
+DROP TABLE IF EXISTS `BRAND_CATEGORY_MIN_PRICE`;
+CREATE TABLE `BRAND_CATEGORY_MIN_PRICE`
+(
+  category_id VARCHAR(255) NOT NULL,
+  brand_id    VARCHAR(255) NOT NULL,
+  product_id  VARCHAR(255) NOT NULL,
+  price       INTEGER,
+  PRIMARY KEY (category_id, brand_id)
+);
+
+DROP TABLE IF EXISTS `BRAND_CATEGORY_MAX_PRICE`;
+CREATE TABLE `BRAND_CATEGORY_MAX_PRICE`
+(
+  category_id VARCHAR(255) NOT NULL,
+  brand_id    VARCHAR(255) NOT NULL,
+  product_id  VARCHAR(255) NOT NULL,
+  price       INTEGER,
+  PRIMARY KEY (category_id, brand_id)
+);
